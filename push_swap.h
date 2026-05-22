@@ -6,7 +6,7 @@
 /*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/22 15:07:25 by zscekic          ###   ########.fr       */
+/*   Updated: 2026/05/22 15:55:49 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,8 @@ t_node	*create_node(int content);
 void	add_back(t_node **stack, t_node *new_node);
 int		get_stack_size(t_node *stack);
 void	free_stack(t_node **stack);
+
+// src_stack - swap
+void	sa(t_node **stack_a);
+void	sb(t_node **stack_b);
+void	ss(t_node **stack_a, t_node **stack_b);
