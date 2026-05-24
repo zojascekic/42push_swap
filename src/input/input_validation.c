@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 11:23:55 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/05/24 14:50:41 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/05/24 15:00:36 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
-//TODO - handle ""
+//TODO - handle "" (maybe just delete all quotes in the input before processing?)
 //TODO - should 01 be valid?
 //TODO - if greater than min int or less than max int - return error,
 //TODO - check for duplicates (can it be O(n^2) or should it be O(n))
