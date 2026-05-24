@@ -6,7 +6,7 @@
 /*   By: Zoja <Zoja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/24 12:40:51 by Zoja             ###   ########.fr       */
+/*   Updated: 2026/05/24 13:14:36 by Zoja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,8 @@ void	pa(t_node **stack_a, t_node **stack_b);
 void	pb(t_node **stack_b, t_node **stack_a);
 
 // src_stack - rotate
+void	ra(t_node **stack_a);
+void	rb(t_node **stack_b);
+void	rr(t_node **stack_a, t_node **stack_b);
+
+// src_stack - reverse rotate
