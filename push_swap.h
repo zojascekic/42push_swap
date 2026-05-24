@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Zoja <Zoja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/22 15:55:49 by zscekic          ###   ########.fr       */
+/*   Updated: 2026/05/24 12:40:51 by Zoja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,9 @@ void	free_stack(t_node **stack);
 void	sa(t_node **stack_a);
 void	sb(t_node **stack_b);
 void	ss(t_node **stack_a, t_node **stack_b);
+
+// src_stack - push
+void	pa(t_node **stack_a, t_node **stack_b);
+void	pb(t_node **stack_b, t_node **stack_a);
+
+// src_stack - rotate
