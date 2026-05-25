@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 11:23:55 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/05/24 15:00:36 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/05/25 12:14:26 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,26 @@ static int	*get_values(int argc, char **argv)
 	return (values);
 }
 
+static int	duplicates(int *values, int size)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < size - 1)
+	{
+		j = i + 1;
+		while (j < size - 1)
+		{
+			if (values[i] == values[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
 int	*validate_input(int argc, char **argv, char **mode, int *bench)
 {
 	int	*values;
@@ -69,6 +89,8 @@ int	*validate_input(int argc, char **argv, char **mode, int *bench)
 	if (*bench == -1)
 		return (NULL);
 	values = get_values(argc, argv);
+	if (duplicates(values, argc))
+		return (free(values), NULL);
 	return (values);
 }
 
@@ -100,5 +122,5 @@ int	main(int argc, char **argv)
 }
 //TODO - handle "" (maybe just delete all quotes in the input before processing?)
 //TODO - should 01 be valid?
-//TODO - if greater than min int or less than max int - return error,
-//TODO - check for duplicates (can it be O(n^2) or should it be O(n))
+//TODO - if greater than min int or less than max int - return error
+// + TODO - check for duplicates (can it be O(n^2) or should it be O(n))
