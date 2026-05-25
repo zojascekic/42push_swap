@@ -6,11 +6,12 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/24 13:28:53 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/05/25 15:45:14 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <limits.h>
 
 typedef struct s_node
 {
@@ -36,6 +37,7 @@ int		ft_atoi(char *str);
 int		ft_strcmp(char *s1, char *s2);
 char	*get_mode(int argc, char **argv);
 int		get_bench(int argc, char **argv);
+int		get_flags_num(int argc, char **argv);
 
 // input - input_validation
 int		*validate_input(int argc, char **argv, char **mode, int *bench);

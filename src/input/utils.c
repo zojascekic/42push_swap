@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 13:25:53 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/05/24 14:49:49 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/05/25 15:45:49 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(char *str)
 {
-	int	i;
-	int	number;
-	int	sign;
+	int		i;
+	long	number;
+	int		sign;
 
 	sign = 1;
 	i = 0;
@@ -36,7 +36,7 @@ int	ft_atoi(char *str)
 		number = number * 10 + (str[i] - '0');
 		i++;
 	}
-	return (number * sign);
+	return (int)(number * sign);
 }
 
 int	ft_strcmp(char *s1, char *s2)
@@ -97,4 +97,24 @@ int	get_bench(int argc, char **argv)
 		i++;
 	}
 	return (bench);
+}
+
+int	get_flags_num(int argc, char **argv)
+{
+	int	count;
+	int	i;
+
+	count = 0;
+	i = 1;
+	while (i < argc)
+	{
+		if (ft_strcmp(argv[i], "--simple") == 0
+			|| ft_strcmp(argv[i], "--medium") == 0
+			|| ft_strcmp(argv[i], "--complex") == 0
+			|| ft_strcmp(argv[i], "--adaptive") == 0
+			|| ft_strcmp(argv[i], "--bench") == 0)
+			count++;
+		i++;
+	}
+	return (count);
 }
