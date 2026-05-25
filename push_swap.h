@@ -6,7 +6,7 @@
 /*   By: Zoja <Zoja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/24 13:14:36 by Zoja             ###   ########.fr       */
+/*   Updated: 2026/05/25 12:27:22 by Zoja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_node
 // src_stack - stack_utils
 t_node	*create_node(int content);
 void	add_back(t_node **stack, t_node *new_node);
+void	add_front(t_node **lst, t_node *new);
 int		get_stack_size(t_node *stack);
 void	free_stack(t_node **stack);
 
