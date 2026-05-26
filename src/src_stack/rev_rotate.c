@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rev_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Zoja <Zoja@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 13:25:11 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/25 12:50:04 by Zoja             ###   ########.fr       */
+/*   Updated: 2026/05/26 10:59:35 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,25 @@ static void	reverse_rotate(t_node **stack)
 	second_last->next = NULL;
 	last->prev = NULL;
 	add_front(stack, last);
+}
+
+void	rra(t_node **stack_a)
+{
+	reverse_rotate(stack_a);
+	write(1, "rra\n", 4);
+}
+
+void	rrb(t_node **stack_b)
+{
+	reverse_rotate(stack_b);
+	write(1, "rrb\n", 4);
+}
+
+void	rrr(t_node **stack_a, t_node **stack_b)
+{
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
+	write(1, "rrr\n", 4);
 }
 
 // int	main(void)

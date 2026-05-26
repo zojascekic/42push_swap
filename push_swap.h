@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Zoja <Zoja@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/25 12:27:22 by Zoja             ###   ########.fr       */
+/*   Updated: 2026/05/26 10:53:46 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,11 @@ void	sa(t_node **stack_a);
 void	sb(t_node **stack_b);
 void	ss(t_node **stack_a, t_node **stack_b);
 
-// src_stack - push
-void	pa(t_node **stack_a, t_node **stack_b);
-void	pb(t_node **stack_b, t_node **stack_a);
+// input - utils
+int		ft_atoi(char *str);
+int		ft_strcmp(char *s1, char *s2);
+char	*get_mode(int argc, char **argv);
+int		get_bench(int argc, char **argv);
 
-// src_stack - rotate
-void	ra(t_node **stack_a);
-void	rb(t_node **stack_b);
-void	rr(t_node **stack_a, t_node **stack_b);
-
-// src_stack - reverse rotate
+// input - input_validation
+int		*validate_input(int argc, char **argv, char **mode, int *bench);
