@@ -6,7 +6,7 @@
 /*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/26 11:04:00 by zscekic          ###   ########.fr       */
+/*   Updated: 2026/05/26 11:08:49 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ void	rb(t_node **stack_b);
 void	rr(t_node **stack_a, t_node **stack_b);
 
 // src_stack - reverse rotate
+void	rra(t_node **stack_a);
+void	rrb(t_node **stack_b);
+void	rrr(t_node **stack_a, t_node **stack_b);
 
 // input - utils
 int		ft_atoi(char *str);
