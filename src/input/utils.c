@@ -6,115 +6,119 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 13:25:53 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/05/25 15:45:49 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/05/26 11:14:12 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-int	ft_atoi(char *str)
+static int	get_int_num(int argc, char **argv, int flags_num)
+{
+	int	i;
+	int	int_num;
+
+	i = flags_num + 1;
+	int_num = 0;
+	while (i < argc)
+		int_num += count_words(argv[i++], ' ');
+	return (int_num);
+}
+
+char	**split_numbers(int argc, char **argv, int flags_num)
+{
+	char	**res;
+	char	**splited;
+	int		i_arg;
+	int		i_res;
+	int		i_splited;
+
+	res = malloc(sizeof(char *)
+			* (get_int_num(argc, argv, flags_num) + 1));
+	if (!res)
+		return (NULL);
+	i_arg = flags_num + 1;
+	i_res = 0;
+	while (i_arg < argc)
+	{
+		splited = ft_split(argv[i_arg++], ' ');
+		if (!splited)
+			return (free_all(res, i_res), NULL);
+		i_splited = 0;
+		while (splited[i_splited])
+			res[i_res++] = splited[i_splited++];
+		free(splited);
+	}
+	res[i_res] = NULL;
+	return (res);
+}
+
+static int	check_overflow(long num, char digit, int sign)
+{
+	if (sign == 1)
+	{
+		if (num > INT_MAX / 10
+			|| (num == INT_MAX / 10 && (digit - '0') > INT_MAX % 10))
+			return (1);
+	}
+	else
+	{
+		if (num > -(INT_MIN / 10)
+			|| (num == -(INT_MIN / 10)
+				&& (digit - '0') > -(INT_MIN % 10)))
+			return (1);
+	}
+	return (0);
+}
+
+static int	check_is_valid_num(char *str)
 {
 	int		i;
-	long	number;
 	int		sign;
+	long	num;
 
-	sign = 1;
 	i = 0;
-	number = 0;
-	while (str[i] == ' ')
-		i++;
-	if ((str[i] == '+') || (str[i] == '-'))
+	sign = 1;
+	num = 0;
+	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
 			sign = -1;
 		i++;
 	}
-	if (str[i] < '0' || str[i] > '9')
+	if (str[i] == '\0')
 		return (0);
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i])
 	{
-		number = number * 10 + (str[i] - '0');
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		if (check_overflow(num, str[i], sign))
+			return (0);
+		num = num * 10 + (str[i] - '0');
 		i++;
 	}
-	return (int)(number * sign);
+	return (1);
 }
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
-
-	i = 0;
-	while ((s1[i] == s2[i]) && s1[i] != '\0')
-		i++;
-	return (s1[i] - s2[i]);
-}
-
-char	*get_mode(int argc, char **argv)
+int	*convert_to_int(int argc, char **numbers, int int_num)
 {
 	int		i;
-	char	*mode;
+	int		j;
+	int		*values;
 
-	i = 1;
-	mode = NULL;
-	while (i < argc)
+	if (int_num <= 0)
+		return (NULL);
+	values = malloc(sizeof(int) * int_num);
+	if (!values)
+		return (NULL);
+	j = 0;
+	i = 0;
+	while (i < int_num)
 	{
-		if (ft_strcmp(argv[i], "--simple") == 0 && !mode)
-			mode = "simple";
-		else if (ft_strcmp(argv[i], "--medium") == 0 && !mode)
-			mode = "medium";
-		else if (ft_strcmp(argv[i], "--complex") == 0 && !mode)
-			mode = "complex";
-		else if (ft_strcmp(argv[i], "--adaptive") == 0 && !mode)
-			mode = "adaptive";
-		else if (mode && (ft_strcmp(argv[i], "--simple") == 0
-				|| ft_strcmp(argv[i], "--medium") == 0
-				|| ft_strcmp(argv[i], "--complex") == 0
-				|| ft_strcmp(argv[i], "--adaptive") == 0))
-			return (NULL);
+		if (!check_is_valid_num(numbers[i]))
+			return (free(values), NULL);
+		values[j] = ft_atoi(numbers[i]);
+		j++;
 		i++;
 	}
-	if (!mode)
-		return ("adaptive");
-	return (mode);
-}
-
-int	get_bench(int argc, char **argv)
-{
-	int	i;
-	int	bench;
-
-	i = 1;
-	bench = 0;
-
-	while (i < argc)
-	{
-		if (ft_strcmp(argv[i], "--bench") == 0)
-		{
-			if (bench == 1)
-				return (-1);
-			bench = 1;
-		}
-		i++;
-	}
-	return (bench);
-}
-
-int	get_flags_num(int argc, char **argv)
-{
-	int	count;
-	int	i;
-
-	count = 0;
-	i = 1;
-	while (i < argc)
-	{
-		if (ft_strcmp(argv[i], "--simple") == 0
-			|| ft_strcmp(argv[i], "--medium") == 0
-			|| ft_strcmp(argv[i], "--complex") == 0
-			|| ft_strcmp(argv[i], "--adaptive") == 0
-			|| ft_strcmp(argv[i], "--bench") == 0)
-			count++;
-		i++;
-	}
-	return (count);
+	return (values);
 }

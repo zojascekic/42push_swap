@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/26 12:21:18 by zscekic          ###   ########.fr       */
+/*   Updated: 2026/05/26 13:47:10 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,18 @@ void	rrb(t_node **stack_b);
 void	rrr(t_node **stack_a, t_node **stack_b);
 
 // input - utils
-int		ft_atoi(char *str);
-int		ft_strcmp(char *s1, char *s2);
 char	*get_mode(int argc, char **argv);
 int		get_bench(int argc, char **argv);
 int		get_flags_num(int argc, char **argv);
+int		count_elements_in_array(char **array);
+int		ft_atoi(char *str);
+int		ft_strcmp(char *s1, char *s2);
+int		count_words(char const *s, char c);
+char	**ft_split(const char *s, char c);
+char	**split_numbers(int argc, char **argv, int flags_num);
+int		*convert_to_int(int argc, char **numbers, int int_num);
+int		has_duplicates(int *values, int int_num);
+void	free_all(char **res, int i);
 
 // input - input_validation
 int		*validate_input(int argc, char **argv, char **mode, int *bench);
