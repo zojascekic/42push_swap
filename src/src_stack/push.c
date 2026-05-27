@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 13:25:17 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/27 13:33:55 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/05/27 13:50:11 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,15 @@ static void	push(t_node **dst, t_node **src)
 void	pa(t_node **stack_a, t_node **stack_b, t_config config)
 {
 	push(stack_a, stack_b);
-	write(1, "pa\n", 3);
+	if (config.bench != 1)
+		write(1, "pa\n", 3);
 	config.pa_count += 1;
 }
 
-void	pb(t_node **stack_a, t_node **stack_b)
+void	pb(t_node **stack_a, t_node **stack_b, t_config config)
 {
 	push(stack_b, stack_a);
-	write(1, "pb\n", 3);
+	if (config.bench != 1)
+		write(1, "pb\n", 3);
+	config.pb_count += 1;
 }

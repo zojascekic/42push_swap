@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Zoja <Zoja@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 13:24:45 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/25 12:50:32 by Zoja             ###   ########.fr       */
+/*   Updated: 2026/05/27 13:53:35 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,27 @@ static void	swap(t_node **stack)
 	*stack = second;
 }
 
-void	sa(t_node **stack_a)
+void	sa(t_node **stack_a, t_config config)
 {
 	swap(stack_a);
-	write(1, "sa\n", 3);
+	if (config.bench != 1)
+		write(1, "sa\n", 3);
+	config.sa_count += 1;
 }
 
-void	sb(t_node **stack_b)
+void	sb(t_node **stack_b, t_config config)
 {
 	swap(stack_b);
-	write(1, "sb\n", 3);
+	if (config.bench != 1)
+		write(1, "sb\n", 3);
+	config.sa_count += 1;
 }
 
-void	ss(t_node **stack_a, t_node **stack_b)
+void	ss(t_node **stack_a, t_node **stack_b, t_config config)
 {
 	swap(stack_a);
 	swap(stack_b);
-	write(1, "ss\n", 3);
+	if (config.bench != 1)
+		write(1, "ss\n", 3);
+	config.ss_count += 1;
 }
