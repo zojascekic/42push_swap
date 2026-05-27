@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/27 13:34:11 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/05/27 14:22:11 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_config
 {
 	int		bench;
 	char	*mode;
+	int		int_num;
 	int		pa_count;
 	int		pb_count;
 	int		sa_count;
@@ -80,4 +81,4 @@ int		has_duplicates(int *values, int int_num);
 void	free_all(char **res, int i);
 
 // input - input_validation
-int		*validate_input(int argc, char **argv, char **mode, int *bench);
+t_node	*get_stack(int argc, char **argv, t_config *config);
