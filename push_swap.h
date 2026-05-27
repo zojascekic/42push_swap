@@ -6,12 +6,13 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/26 13:47:10 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/05/27 13:34:11 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <limits.h>
+#include <unistd.h>
 
 typedef struct s_node
 {
@@ -20,6 +21,23 @@ typedef struct s_node
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
+
+typedef struct s_config
+{
+	int		bench;
+	char	*mode;
+	int		pa_count;
+	int		pb_count;
+	int		sa_count;
+	int		sb_count;
+	int		ss_count;
+	int		ra_count;
+	int		rb_count;
+	int		rr_count;
+	int		rra_count;
+	int		rrb_count;
+	int		rrr_count;
+}	t_config;
 
 // src_stack - stack_utils
 t_node	*create_node(int content);

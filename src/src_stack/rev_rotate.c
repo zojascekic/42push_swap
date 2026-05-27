@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rev_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 13:25:11 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/26 11:07:05 by zscekic          ###   ########.fr       */
+/*   Updated: 2026/05/27 13:36:36 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ void	rra(t_node **stack_a)
 	write(1, "rra\n", 4);
 }
 
-void	rrb(t_node **stack_b)
+void	rrb(t_node **stack_b, t_config config)
 {
 	reverse_rotate(stack_b);
-	write(1, "rrb\n", 4);
+	write(1, "rrb\n", 4);	
 }
 
 void	rrr(t_node **stack_a, t_node **stack_b)

@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 11:23:55 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/05/26 11:22:34 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/05/27 11:50:48 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	*validate_input(int argc, char **argv, char **mode, int *bench)
 // 		return (0);
 // 	values = validate_input(argc, argv, &mode, &bench);
 // 	if (!values)
-// 		printf("error\n");
+// 		printf("Error\n");
 // 	else
 // 	{
 // 		printf("mode = %s\n", mode);
