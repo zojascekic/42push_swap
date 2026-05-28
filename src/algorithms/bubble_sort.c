@@ -6,19 +6,39 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 11:10:28 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/05/27 14:18:16 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/05/28 11:38:31 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 #include <stdio.h>
 
-// void	bubble_sort(int *arr, int size, int bench)
+// void	bubble_sort(t_node *a, t_config config)
 // {
-// 	char	**operations;
-// 	t_node	*stack_a;
-// 	t_node	*stack_b;
+// 	int	swapped;
+// 	int	i;
 
+// 	while (swapped)
+// 	{
+// 		swapped = 0;
+// 		i = 0;
+// 		while (i < size(a) - 1)
+// 		{
+// 			if (a->content > a->next->content)
+// 			{
+// 				sa(a);
+// 				swapped = 1;
+// 			}
+// 			ra(a);
+// 			i++;
+// 		}
+// 		while (i--)
+// 			rra(a);
+// 	}
+// 	printf("%i\n", a->content);
+// 	printf("%i\n", a->next->content);
+// 	printf("%i\n", a->next->next->content);
+// 	printf("%i\n", a->next->next->next->content);
 // }
 
 int	main(int argc, char **argv)
@@ -37,9 +57,6 @@ int	main(int argc, char **argv)
 	}
 	printf("bench: %i\n", config.bench);
 	printf("mode: %s\n", config.mode);
-	printf("%i\n", stack_a->content);
-	printf("%i\n", stack_a->next->content);
-	printf("%i\n", stack_a->next->next->content);
-	// bubble_sort(stack_a, argc - 1, 0);
+	// bubble_sort(stack_a, config);
 	return (0);
 }

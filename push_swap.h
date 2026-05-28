@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/27 14:22:11 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/05/28 11:37:56 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,23 +48,23 @@ int		get_stack_size(t_node *stack);
 void	free_stack(t_node **stack);
 
 // src_stack - swap
-void	sa(t_node **stack_a);
-void	sb(t_node **stack_b);
-void	ss(t_node **stack_a, t_node **stack_b);
+void	sa(t_node **stack_a, t_config config);
+void	sb(t_node **stack_b, t_config config);
+void	ss(t_node **stack_a, t_node **stack_b, t_config config);
 
 // src_stack - push
-void	pa(t_node **stack_a, t_node **stack_b);
-void	pb(t_node **stack_a, t_node **stack_b);
+void	pa(t_node **stack_a, t_node **stack_b, t_config config);
+void	pb(t_node **stack_a, t_node **stack_b, t_config config);
 
 // src_stack - rotate
-void	ra(t_node **stack_a);
-void	rb(t_node **stack_b);
-void	rr(t_node **stack_a, t_node **stack_b);
+void	ra(t_node **stack_a, t_config config);
+void	rb(t_node **stack_b, t_config config);
+void	rr(t_node **stack_a, t_node **stack_b, t_config config);
 
 // src_stack - reverse rotate
-void	rra(t_node **stack_a);
-void	rrb(t_node **stack_b);
-void	rrr(t_node **stack_a, t_node **stack_b);
+void	rra(t_node **stack_a, t_config config);
+void	rrb(t_node **stack_b, t_config config);
+void	rrr(t_node **stack_a, t_node **stack_b, t_config config);
 
 // input - utils
 char	*get_mode(int argc, char **argv);
