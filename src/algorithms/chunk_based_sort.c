@@ -6,13 +6,13 @@
 /*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 14:01:56 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/28 14:12:42 by zscekic          ###   ########.fr       */
+/*   Updated: 2026/05/28 15:54:40 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-// todo!
+// todo - push_to_a and chunk_based_sort
 
 static void	assign_index(t_node *stack)
 {
@@ -48,9 +48,69 @@ static int	chunk_size(int stack_size)
 		return (60);
 }
 
+static void	scan_and_push(t_node **stack_a, t_node **stack_b,
+	int chunk_size, t_config config)
+{
+	int	i;
+
+	i = 0;
+	while ((*stack_a) != NULL)
+	{
+		if ((*stack_a)->index <= i)
+		{
+			pb(stack_a, stack_b, config);
+			i ++;
+		}
+		else if ((*stack_a)->index <= i + chunk_size)
+		{
+			pb(stack_a, stack_b, config);
+			rb(stack_b, config);
+			i ++;
+		}
+		else
+			ra(stack_a, config);
+	}
+}
+// to revise
+// static void	push_to_a(t_node **stack_a, t_node **stack_b, t_config config)
+// {
+// 	int		max_index;
+// 	int		max_pos;
+// 	int		current_pos;
+// 	t_node	*temp;
+// 	int		stack_size;
+
+// 	max_index = -1;
+// 	max_pos = 0;
+// 	current_pos = 0;
+// 	temp = *stack_b;
+// 	stack_size = get_stack_size(stack_b);
+
+// 	while (temp != NULL)
+// 	{
+// 		if (temp->index > max_index)
+// 		{
+// 			max_index = temp->index;
+// 			max_pos = current_pos;
+// 		}
+// 		current_pos += 1;
+// 		temp = temp->next;
+// 	}
+// 	while (max_pos != 0)
+// 	{
+// 		if (max_pos <= stack_size / 2)
+// 		{
+// 			rb(stack_b, config);
+// 			max_pos --;
+// 		}
+// 		else
+// 			rrb(stack_b, config);
+// 	}
+// 	pa(stack_a, stack_b, config);
+// }
+
 // void	chunk_sort(t_node **stack_a, t_node **stack_b, t_config config)
 // {
-	
 // }
 
 // #include <stdio.h>
