@@ -6,7 +6,7 @@
 /*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 14:01:56 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/29 11:59:51 by zscekic          ###   ########.fr       */
+/*   Updated: 2026/05/29 13:30:10 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,21 +73,19 @@ static void	scan_and_push(t_node **stack_a, t_node **stack_b, t_config config)
 	}
 }
 
-static void	push_to_a(t_node **stack_a, t_node **stack_b, t_config config)
+static int	get_max_pos(t_node **stack_b)
 {
 	int		max_index;
 	int		max_pos;
 	int		current_pos;
 	t_node	*temp;
-	int		stack_size;
 
-	while ((*stack_b) != NULL)
+	max_index = -1;
+	max_pos = 0;
+	current_pos = 0;
+	temp = *stack_b;
+	while (temp != NULL)
 	{
-		max_index = -1;
-		max_pos = 0;
-		current_pos = 0;
-		temp = *stack_b;
-		stack_size = get_stack_size(*stack_b);
 		while (temp != NULL)
 		{
 			if (temp->index > max_index)
@@ -98,29 +96,34 @@ static void	push_to_a(t_node **stack_a, t_node **stack_b, t_config config)
 			current_pos += 1;
 			temp = temp->next;
 		}
+	}
+	return (max_pos);
+}
+
+void	chunk_sort(t_node **stack_a, t_node **stack_b, t_config config)
+{
+	int	max_pos;
+	int	stack_size;
+
+	assign_index(*stack_a);
+	scan_and_push(stack_a, stack_b, config);
+	while ((*stack_b) != NULL)
+	{
+		max_pos = get_max_pos(stack_b);
+		stack_size = get_stack_size(*stack_b);
 		if (max_pos <= stack_size / 2)
 		{
-			while (max_pos > 0)
-			{
+			while (max_pos-- > 0)
 				rb(stack_b, config);
-				max_pos --;
-			}
 		}
 		else
 		{
-			while (max_pos < stack_size)
-			{
+			while (max_pos++ < stack_size)
 				rrb(stack_b, config);
-				max_pos ++;
-			}
 		}
 		pa(stack_a, stack_b, config);
 	}
 }
-
-// void	chunk_sort(t_node **stack_a, t_node **stack_b, t_config config)
-// {
-// }
 
 // #include <stdio.h>
 
@@ -136,27 +139,19 @@ static void	push_to_a(t_node **stack_a, t_node **stack_b, t_config config)
 // 	t_config	config;
 
 // 	list = NULL;
-// 	node1 = create_node(1);
-// 	node2 = create_node(-2);
+// 	node1 = create_node(0);
+// 	node2 = create_node(-15);
 // 	node3 = create_node(-5);
 // 	add_front(&list, node1);
 // 	add_front(&list, node2);
 // 	add_front(&list, node3);
-// 	assign_index(list);
 // 	temp2 = list;
 // 	temp3 = NULL;
-// 	scan_and_push(&temp2, &temp3, config);
-// 	print_ptr = temp3;
-// 	while (print_ptr != NULL)
-// 	{
-// 		printf("content2: %i\n", (int)print_ptr->content);
-// 		print_ptr = print_ptr->next;
-// 	}
-// 	push_to_a(&temp2, &temp3, config);
+// 	chunk_sort(&temp2, &temp3, config);
 // 	print_ptr = temp2;
 // 	while (print_ptr != NULL)
 // 	{
-// 		printf("a after pta: %i\n", (int)print_ptr->content);
+// 		printf("a after sorting: %i\n", (int)print_ptr->content);
 // 		print_ptr = print_ptr->next;
 // 	}
 // }
