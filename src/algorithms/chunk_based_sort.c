@@ -6,13 +6,11 @@
 /*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 14:01:56 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/29 13:30:10 by zscekic          ###   ########.fr       */
+/*   Updated: 2026/05/29 13:33:07 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
-
-// todo - chunk_based_sort
 
 static void	assign_index(t_node *stack)
 {
