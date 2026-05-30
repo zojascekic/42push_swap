@@ -6,7 +6,7 @@
 /*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/30 11:40:35 by zscekic          ###   ########.fr       */
+/*   Updated: 2026/05/30 12:17:00 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,3 +90,6 @@ void	merge_sort(t_node *a, t_node *b, t_config config);
 
 // disorder
 double	compute_disorder(t_node *stack_a);
+
+// benchmark
+void	benchmark_summary(double disorder, int total_moves, t_config config);
