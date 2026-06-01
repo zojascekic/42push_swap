@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 11:23:55 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/05/27 14:26:46 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 10:35:42 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	*validate_input(int argc, char **argv, t_config *config)
 		return (NULL);
 	config->int_num = count_elements_in_array(numbers);
 	values = convert_to_int(argc, numbers, config->int_num);
-	free(numbers);
+	free(numbers); //TODO function to free whats inside
 	if (!values)
 		return (NULL);
 	if (has_duplicates(values, config->int_num))

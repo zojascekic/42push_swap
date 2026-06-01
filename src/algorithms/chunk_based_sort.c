@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_based_sort.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 14:01:56 by zscekic           #+#    #+#             */
-/*   Updated: 2026/05/29 13:33:07 by zscekic          ###   ########.fr       */
+/*   Updated: 2026/06/01 10:36:16 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-static void	assign_index(t_node *stack)
+void	assign_index(t_node *stack)
 {
 	t_node	*current;
 	t_node	*compare;
@@ -40,7 +40,7 @@ static int	get_chunk_size(int stack_size)
 		return (stack_size / 2);
 	if (stack_size <= 100)
 		return (23);
-	if (stack_size <= 500)
+	if (stack_size <= 500) //TODO delete hard code?
 		return (45);
 	else
 		return (60);
