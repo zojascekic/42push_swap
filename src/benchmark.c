@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/30 12:14:40 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/01 18:45:00 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 19:45:47 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	write_disorder_percentage(double disorder)
 
 	int_part = (int)(disorder * 100);
 	float_part = (int)(((disorder * 100) - int_part) * 100 + 0.5);
+	ft_putstr_fd("[bench] disorder: ", 2);
 	ft_putnbr_fd(int_part, 2);
 	ft_putchar_fd('.', 2);
 	ft_putnbr_fd(float_part, 2);
@@ -27,6 +28,7 @@ static void	write_disorder_percentage(double disorder)
 
 static void	write_strategy(t_config config, double disorder)
 {
+	ft_putstr_fd("[bench] strategy: ", 2);
 	if (ft_strcmp(config.strategy, "simple") == 0)
 		ft_putendl_fd("Simple / O(n^2)", 2);
 	else if (ft_strcmp(config.strategy, "medium") == 0)
@@ -44,7 +46,15 @@ static void	write_strategy(t_config config, double disorder)
 	}
 }
 
-static void	write_total_operations(t_config config)
+static void	print_op_count(char *name, int count)
+{
+	ft_putstr_fd(name, 2);
+	ft_putstr_fd(": ", 2);
+	ft_putnbr_fd(count, 2);
+	ft_putchar_fd(' ', 2);
+}
+
+static void	write_operations_count(t_config config)
 {
 	int	sum;
 
@@ -52,46 +62,31 @@ static void	write_total_operations(t_config config)
 		+ config.rr_count + config.rra_count + config.rrb_count
 		+ config.rrr_count + config.sa_count + config.sb_count
 		+ config.ss_count;
+	ft_putstr_fd("[bench] total_ops: ", 2);
 	ft_putnbr_fd(sum, 2);
 	ft_putchar_fd('\n', 2);
-}
-
-static void	write_each_operation(t_config config)
-{
-	ft_putstr_fd("sa :", 2);
-	ft_putnbr_fd(config.sa_count, 2);
-	ft_putstr_fd("sb :", 2);
-	ft_putnbr_fd(config.sb_count, 2);
-	ft_putstr_fd("ss :", 2);
-	ft_putnbr_fd(config.ss_count, 2);
-	ft_putstr_fd("pa :", 2);
-	ft_putnbr_fd(config.pa_count, 2);
-	ft_putstr_fd("pb :", 2);
-	ft_putnbr_fd(config.pb_count, 2);
-	ft_putstr_fd("ra :", 2);
-	ft_putnbr_fd(config.ra_count, 2);
-	ft_putstr_fd("rb :", 2);
-	ft_putnbr_fd(config.rb_count, 2);
-	ft_putstr_fd("rr :", 2);
-	ft_putnbr_fd(config.rr_count, 2);
-	ft_putstr_fd("rra :", 2);
-	ft_putnbr_fd(config.rra_count, 2);
-	ft_putstr_fd("rrb :", 2);
-	ft_putnbr_fd(config.rrb_count, 2);
-	ft_putstr_fd("rrr :", 2);
-	ft_putnbr_fd(config.rrr_count, 2);
+	ft_putstr_fd("[bench] ", 2);
+	print_op_count("sa", config.sa_count);
+	print_op_count("sb", config.sb_count);
+	print_op_count("ss", config.ss_count);
+	print_op_count("pa", config.pa_count);
+	print_op_count("pb", config.pb_count);
+	ft_putchar_fd('\n', 2);
+	ft_putstr_fd("[bench] ", 2);
+	print_op_count("ra", config.ra_count);
+	print_op_count("rb", config.rb_count);
+	print_op_count("rr", config.rr_count);
+	print_op_count("rra", config.rra_count);
+	print_op_count("rrb", config.rrb_count);
+	print_op_count("rrr", config.rrr_count);
+	ft_putchar_fd('\n', 2);
 }
 
 void	benchmark_summary(double disorder, t_config *config)
 {
-	ft_putendl_fd("---BENCHMARK SUMMARY---", 2);
-	ft_putstr_fd("disorder: ", 2);
 	write_disorder_percentage(disorder);
-	ft_putstr_fd("strategy: ", 2);
 	write_strategy(*config, disorder);
-	ft_putstr_fd("total_ops: ", 2);
-	write_total_operations(*config);
-	write_each_operation(*config);
+	write_operations_count(*config);
 }
 
 // #include <stdio.h>
