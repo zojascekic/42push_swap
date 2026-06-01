@@ -6,12 +6,11 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 12:17:41 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/06/01 18:44:24 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 18:51:45 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
