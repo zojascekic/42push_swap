@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 11:23:55 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/06/01 16:23:19 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 18:42:43 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ int	*validate_input(int argc, char **argv, t_config *config)
 	numbers = split_numbers(argc, argv, flags_num);
 	if (!numbers)
 		return (NULL);
-	config->int_num = count_elements_in_array(numbers);
-	values = convert_to_int(numbers, config->int_num);
+	config->size = count_elements_in_array(numbers);
+	values = convert_to_int(numbers, config->size);
 	free_str_array(numbers);
 	if (!values)
 		return (NULL);
-	if (has_duplicates(values, config->int_num))
+	if (has_duplicates(values, config->size))
 		return (free(values), NULL);
 	return (values);
 }
@@ -64,7 +64,7 @@ t_node	*get_stack(int argc, char **argv, t_config *config)
 	if (!values)
 		return (NULL);
 	i = 0;
-	while (i < config->int_num)
+	while (i < config->size)
 	{
 		node = create_node(values[i]);
 		if (!node)

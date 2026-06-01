@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 11:10:28 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/06/01 15:32:05 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 18:41:31 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	bubble_sort(t_node **a, t_config *config)
 	{
 		swapped = 0;
 		i = 0;
-		while (i < config->int_num - 1)
+		while (i < config->size - 1)
 		{
 			if ((*a)->content > (*a)->next->content)
 			{

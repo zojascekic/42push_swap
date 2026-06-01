@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/01 18:38:50 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 18:41:19 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_config
 {
 	int		bench;
 	char	*mode;
-	int		int_num;
+	int		size;
 	int		pa_count;
 	int		pb_count;
 	int		sa_count;
