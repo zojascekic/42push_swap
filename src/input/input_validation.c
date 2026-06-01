@@ -6,11 +6,23 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 11:23:55 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/06/01 10:35:42 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 13:27:12 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
+
+static void	free_str_array(char **arr)
+{
+	int	i;
+
+	if (!arr)
+		return ;
+	i = 0;
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
+}
 
 int	*validate_input(int argc, char **argv, t_config *config)
 {
@@ -31,8 +43,8 @@ int	*validate_input(int argc, char **argv, t_config *config)
 	if (!numbers)
 		return (NULL);
 	config->int_num = count_elements_in_array(numbers);
-	values = convert_to_int(argc, numbers, config->int_num);
-	free(numbers); //TODO function to free whats inside
+	values = convert_to_int(numbers, config->int_num);
+	free_str_array(numbers);
 	if (!values)
 		return (NULL);
 	if (has_duplicates(values, config->int_num))
@@ -48,48 +60,41 @@ t_node	*get_stack(int argc, char **argv, t_config *config)
 	int		i;
 
 	values = validate_input(argc, argv, config);
-
 	stack_a = NULL;
-
 	if (!values)
 		return (NULL);
-
 	i = 0;
-
 	while (i < config->int_num)
 	{
 		node = create_node(values[i]);
 		add_back(&stack_a, node);
 		i++;
 	}
-
 	return (stack_a);
 }
 
 // #include <stdio.h>
 // int	main(int argc, char **argv)
 // {
-// 	int		*values;
-// 	char	*mode;
-// 	int		bench;
-// 	int		i;
+// 	t_node		*stack_a;
+// 	t_node		*stack_b;
+// 	t_config	config;
 
 // 	if (argc < 2)
 // 		return (0);
-// 	values = validate_input(argc, argv, &mode, &bench);
-// 	if (!values)
-// 		printf("Error\n");
-// 	else
+// 	config = (t_config){0};
+// 	stack_a = get_stack(argc, argv, &config);
+// 	if (!stack_a)
 // 	{
-// 		printf("mode = %s\n", mode);
-// 		printf("bench = %d\n", bench);
-// 		i = 0;
-// 		while (i < 15)
-// 		{
-// 			printf("%d\n", values[i]);
-// 			i++;
-// 		}
-// 		free(values);
+// 		printf("Error\n");
+// 		return (0);
+// 	}
+// 	printf("mode = %s\n", config.mode);
+// 	printf("bench = %d\n", config.bench);
+// 	while (stack_a != NULL)
+// 	{
+// 		printf("%d\n", stack_a->content);
+// 		stack_a = stack_a->next;
 // 	}
 // 	return (0);
 // }

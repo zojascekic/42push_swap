@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/01 11:40:47 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 12:35:27 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int		ft_strcmp(char *s1, char *s2);
 int		count_words(char const *s, char c);
 char	**ft_split(const char *s, char c);
 char	**split_numbers(int argc, char **argv, int flags_num);
-int		*convert_to_int(int argc, char **numbers, int int_num);
+int		*convert_to_int(char **numbers, int int_num);
 int		has_duplicates(int *values, int int_num);
 void	free_all(char **res, int i);
 

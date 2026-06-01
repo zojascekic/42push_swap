@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 13:25:53 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/05/26 11:14:12 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 12:35:04 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ static int	check_is_valid_num(char *str)
 	return (1);
 }
 
-int	*convert_to_int(int argc, char **numbers, int int_num)
+int	*convert_to_int(char **numbers, int int_num)
 {
 	int		i;
 	int		j;
