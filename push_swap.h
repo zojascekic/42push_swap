@@ -6,13 +6,17 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/01 13:48:29 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 14:56:16 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <limits.h>
-#include <unistd.h>
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include "libft/libft.h"
+# include <stdlib.h>
+# include <limits.h>
+# include <unistd.h>
 
 typedef struct s_node
 {
@@ -94,4 +98,5 @@ void	adaptive(t_node **stack_a, t_node **stack_b, t_config config);
 double	compute_disorder(t_node *stack_a);
 
 // benchmark
-void	benchmark_summary(double disorder, int total_moves, t_config config);
+void	benchmark_summary(double disorder, t_config config);
+#endif
