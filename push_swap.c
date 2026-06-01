@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 12:17:41 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/06/01 15:37:55 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 16:28:32 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 	{
 		write(2, "Error\n", 6);
-		return (0);
+		return (1);
 	}
 	stack_b = NULL;
 	if (ft_strcmp(config.mode, "simple") == 0)
@@ -39,6 +39,7 @@ int	main(int argc, char **argv)
 		adaptive(&stack_a, &stack_b, &config);
 	if (config.bench == 1)
 		benchmark_summary(compute_disorder(stack_a), &config);
-	// free_stack(&stack_a);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }
