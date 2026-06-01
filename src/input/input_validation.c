@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_validation.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 11:23:55 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/06/01 10:35:42 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 11:52:18 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ t_node	*get_stack(int argc, char **argv, t_config *config)
 
 	return (stack_a);
 }
-
 // #include <stdio.h>
 // int	main(int argc, char **argv)
 // {
