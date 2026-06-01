@@ -6,7 +6,7 @@
 /*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/30 12:14:40 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/01 14:43:30 by zscekic          ###   ########.fr       */
+/*   Updated: 2026/06/01 14:52:21 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,31 @@ static void	write_total_operations(t_config config)
 	ft_putchar_fd('\n', 2);
 }
 
-// static void	write_operations(t_config config)
-// {
-// }
+static void	write_each_operation(t_config config)
+{
+	ft_putstr_fd("sa :", 2);
+	ft_putnbr_fd(config.sa_count, 2);
+	ft_putstr_fd("sb :", 2);
+	ft_putnbr_fd(config.sb_count, 2);
+	ft_putstr_fd("ss :", 2);
+	ft_putnbr_fd(config.ss_count, 2);
+	ft_putstr_fd("pa :", 2);
+	ft_putnbr_fd(config.pa_count, 2);
+	ft_putstr_fd("pb :", 2);
+	ft_putnbr_fd(config.pb_count, 2);
+	ft_putstr_fd("ra :", 2);
+	ft_putnbr_fd(config.ra_count, 2);
+	ft_putstr_fd("rb :", 2);
+	ft_putnbr_fd(config.rb_count, 2);
+	ft_putstr_fd("rr :", 2);
+	ft_putnbr_fd(config.rr_count, 2);
+	ft_putstr_fd("rra :", 2);
+	ft_putnbr_fd(config.rra_count, 2);
+	ft_putstr_fd("rrb :", 2);
+	ft_putnbr_fd(config.rrb_count, 2);
+	ft_putstr_fd("rrr :", 2);
+	ft_putnbr_fd(config.rrr_count, 2);
+}
 
 void	benchmark_summary(double disorder, t_config config)
 {
@@ -69,13 +91,14 @@ void	benchmark_summary(double disorder, t_config config)
 	write_strategy(config, disorder);
 	ft_putstr_fd("total_ops: ", 2);
 	write_total_operations(config);
+	write_each_operation(config);
 }
 
-#include <stdio.h>
-int	main(void)
-{
-	t_config	config;
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	t_config	config;
 
-	config.mode = "adaptive";
-	benchmark_summary(0.413518, config);
-}
+// 	config.mode = "adaptive";
+// 	benchmark_summary(0.413518, config);
+// }
