@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 12:17:41 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/06/01 12:23:13 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 13:47:46 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,15 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		return (0);
 	}
-	if (config.mode == "simple")
-		bubble_sort(stack_a, config);
-	else if (config.mode == "medium")
-		chunk_sort(stack_a, stack_b, config);
-	else if (config.mode == "complex")
-		radix_sort(stack_a, stack_b, config);
-	else if (config.mode == "adaptive")
-		adaptive(stack_a, stack_b, config);
+	stack_b = NULL;
+	if (ft_strcmp(config.mode, "simple") == 0)
+		bubble_sort(&stack_a, config);
+	else if (ft_strcmp(config.mode, "medium") == 0)
+		chunk_sort(&stack_a, &stack_b, config);
+	else if (ft_strcmp(config.mode, "complex") == 0)
+		radix_sort(&stack_a, &stack_b, config);
+	else if (ft_strcmp(config.mode, "adaptive") == 0)
+		adaptive(&stack_a, &stack_b, config);
 	// if (config.bench == 1)
 		// benchmark_summary(config);
 	return (0);

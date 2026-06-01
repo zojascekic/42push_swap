@@ -6,14 +6,14 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 11:10:28 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/05/28 13:45:23 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 13:50:32 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 #include <stdio.h>
 
-void	bubble_sort(t_node *a, t_config config)
+void	bubble_sort(t_node **a, t_config config)
 {
 	int	swapped;
 	int	i;
@@ -25,16 +25,16 @@ void	bubble_sort(t_node *a, t_config config)
 		i = 0;
 		while (i < config.int_num - 1)
 		{
-			if (a->content > a->next->content)
+			if ((*a)->content > (*a)->next->content)
 			{
-				sa(&a, config);
+				sa(a, config);
 				swapped = 1;
 			}
-			ra(&a, config);
+			ra(a, config);
 			i++;
 		}
 		while (i--)
-			rra(&a, config);
+			rra(a, config);
 	}
 }
 
