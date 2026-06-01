@@ -6,39 +6,39 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 10:27:07 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/05/26 10:27:34 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 18:45:42 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-char	*get_mode(int argc, char **argv)
+char	*get_strategy(int argc, char **argv)
 {
 	int		i;
-	char	*mode;
+	char	*strategy;
 
 	i = 1;
-	mode = NULL;
+	strategy = NULL;
 	while (i < argc)
 	{
-		if (ft_strcmp(argv[i], "--simple") == 0 && !mode)
-			mode = "simple";
-		else if (ft_strcmp(argv[i], "--medium") == 0 && !mode)
-			mode = "medium";
-		else if (ft_strcmp(argv[i], "--complex") == 0 && !mode)
-			mode = "complex";
-		else if (ft_strcmp(argv[i], "--adaptive") == 0 && !mode)
-			mode = "adaptive";
-		else if (mode && (ft_strcmp(argv[i], "--simple") == 0
+		if (ft_strcmp(argv[i], "--simple") == 0 && !strategy)
+			strategy = "simple";
+		else if (ft_strcmp(argv[i], "--medium") == 0 && !strategy)
+			strategy = "medium";
+		else if (ft_strcmp(argv[i], "--complex") == 0 && !strategy)
+			strategy = "complex";
+		else if (ft_strcmp(argv[i], "--adaptive") == 0 && !strategy)
+			strategy = "adaptive";
+		else if (strategy && (ft_strcmp(argv[i], "--simple") == 0
 				|| ft_strcmp(argv[i], "--medium") == 0
 				|| ft_strcmp(argv[i], "--complex") == 0
 				|| ft_strcmp(argv[i], "--adaptive") == 0))
 			return (NULL);
 		i++;
 	}
-	if (!mode)
+	if (!strategy)
 		return ("adaptive");
-	return (mode);
+	return (strategy);
 }
 
 int	get_bench(int argc, char **argv)

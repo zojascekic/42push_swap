@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/01 18:41:19 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 18:45:13 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_node
 typedef struct s_config
 {
 	int		bench;
-	char	*mode;
+	char	*strategy;
 	int		size;
 	int		pa_count;
 	int		pb_count;
@@ -71,7 +71,7 @@ void	rrb(t_node **stack_b, t_config *config);
 void	rrr(t_node **stack_a, t_node **stack_b, t_config *config);
 
 // input - utils
-char	*get_mode(int argc, char **argv);
+char	*get_strategy(int argc, char **argv);
 int		get_bench(int argc, char **argv);
 int		get_flags_num(int argc, char **argv);
 int		count_elements_in_array(char **array);

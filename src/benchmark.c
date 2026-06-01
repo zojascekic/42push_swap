@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/30 12:14:40 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/01 15:37:08 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 18:45:00 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ static void	write_disorder_percentage(double disorder)
 
 static void	write_strategy(t_config config, double disorder)
 {
-	if (ft_strcmp(config.mode, "simple") == 0)
+	if (ft_strcmp(config.strategy, "simple") == 0)
 		ft_putendl_fd("Simple / O(n^2)", 2);
-	else if (ft_strcmp(config.mode, "medium") == 0)
+	else if (ft_strcmp(config.strategy, "medium") == 0)
 		ft_putendl_fd("Medium / O(n√n)", 2);
-	else if (ft_strcmp(config.mode, "complex") == 0)
+	else if (ft_strcmp(config.strategy, "complex") == 0)
 		ft_putendl_fd("Complex / O(n log n)", 2);
-	else if (ft_strcmp(config.mode, "adaptive") == 0)
+	else if (ft_strcmp(config.strategy, "adaptive") == 0)
 	{
 		if (disorder < 0.2)
 			ft_putendl_fd("Adaptive / O(n^2)", 2);
@@ -99,6 +99,6 @@ void	benchmark_summary(double disorder, t_config *config)
 // {
 // 	t_config	config;
 
-// 	config.mode = "adaptive";
+// 	config.strategy = "adaptive";
 // 	benchmark_summary(0.413518, &config);
 // }

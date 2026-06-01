@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 11:23:55 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/06/01 18:42:43 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 18:44:54 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	*validate_input(int argc, char **argv, t_config *config)
 
 	if (argc < 2)
 		return (NULL);
-	config->mode = get_mode(argc, argv);
-	if (!(*config->mode))
+	config->strategy = get_strategy(argc, argv);
+	if (!(*config->strategy))
 		return (NULL);
 	config->bench = get_bench(argc, argv);
 	if (config->bench == -1)
@@ -95,7 +95,7 @@ t_node	*get_stack(int argc, char **argv, t_config *config)
 // 		printf("Error\n");
 // 		return (0);
 // 	}
-// 	printf("mode = %s\n", config.mode);
+// 	printf("strategy = %s\n", config.strategy);
 // 	printf("bench = %d\n", config.bench);
 // 	while (stack_a != NULL)
 // 	{

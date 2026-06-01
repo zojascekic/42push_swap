@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 12:17:41 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/06/01 18:36:56 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 18:44:24 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ int	main(int argc, char **argv)
 	if (disorder == 0.0)
 		return (free_stack(&stack_a), 0);
 	stack_b = NULL;
-	if (ft_strcmp(config.mode, "simple") == 0)
+	if (ft_strcmp(config.strategy, "simple") == 0)
 		bubble_sort(&stack_a, &config);
-	else if (ft_strcmp(config.mode, "medium") == 0)
+	else if (ft_strcmp(config.strategy, "medium") == 0)
 		chunk_sort(&stack_a, &stack_b, &config);
-	else if (ft_strcmp(config.mode, "complex") == 0)
+	else if (ft_strcmp(config.strategy, "complex") == 0)
 		radix_sort(&stack_a, &stack_b, &config);
-	else if (ft_strcmp(config.mode, "adaptive") == 0)
+	else if (ft_strcmp(config.strategy, "adaptive") == 0)
 		adaptive(&stack_a, &stack_b, &config, disorder);
 	if (config.bench == 1)
 		benchmark_summary(disorder, &config);
