@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 14:01:56 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/01 10:36:16 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 15:32:52 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	get_chunk_size(int stack_size)
 		return (60);
 }
 
-static void	scan_and_push(t_node **stack_a, t_node **stack_b, t_config config)
+static void	scan_and_push(t_node **stack_a, t_node **stack_b, t_config *config)
 {
 	int	i;
 	int	chunk_size;
@@ -98,7 +98,7 @@ static int	get_max_pos(t_node **stack_b)
 	return (max_pos);
 }
 
-void	chunk_sort(t_node **stack_a, t_node **stack_b, t_config config)
+void	chunk_sort(t_node **stack_a, t_node **stack_b, t_config *config)
 {
 	int	max_pos;
 	int	stack_size;

@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/01 14:56:16 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 15:31:00 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,23 @@ int		get_stack_size(t_node *stack);
 void	free_stack(t_node **stack);
 
 // src_stack - swap
-void	sa(t_node **stack_a, t_config config);
-void	sb(t_node **stack_b, t_config config);
-void	ss(t_node **stack_a, t_node **stack_b, t_config config);
+void	sa(t_node **stack_a, t_config *config);
+void	sb(t_node **stack_b, t_config *config);
+void	ss(t_node **stack_a, t_node **stack_b, t_config *config);
 
 // src_stack - push
-void	pa(t_node **stack_a, t_node **stack_b, t_config config);
-void	pb(t_node **stack_a, t_node **stack_b, t_config config);
+void	pa(t_node **stack_a, t_node **stack_b, t_config *config);
+void	pb(t_node **stack_a, t_node **stack_b, t_config *config);
 
 // src_stack - rotate
-void	ra(t_node **stack_a, t_config config);
-void	rb(t_node **stack_b, t_config config);
-void	rr(t_node **stack_a, t_node **stack_b, t_config config);
+void	ra(t_node **stack_a, t_config *config);
+void	rb(t_node **stack_b, t_config *config);
+void	rr(t_node **stack_a, t_node **stack_b, t_config *config);
 
 // src_stack - reverse rotate
-void	rra(t_node **stack_a, t_config config);
-void	rrb(t_node **stack_b, t_config config);
-void	rrr(t_node **stack_a, t_node **stack_b, t_config config);
+void	rra(t_node **stack_a, t_config *config);
+void	rrb(t_node **stack_b, t_config *config);
+void	rrr(t_node **stack_a, t_node **stack_b, t_config *config);
 
 // input - utils
 char	*get_mode(int argc, char **argv);
@@ -88,15 +88,15 @@ void	free_all(char **res, int i);
 t_node	*get_stack(int argc, char **argv, t_config *config);
 
 // algorithms
-void	bubble_sort(t_node **a, t_config config);
+void	bubble_sort(t_node **a, t_config *config);
 void	assign_index(t_node *stack);
-void	chunk_sort(t_node **stack_a, t_node **stack_b, t_config config);
-void	radix_sort(t_node **a, t_node **b, t_config config);
-void	adaptive(t_node **stack_a, t_node **stack_b, t_config config);
+void	chunk_sort(t_node **stack_a, t_node **stack_b, t_config *config);
+void	radix_sort(t_node **a, t_node **b, t_config *config);
+void	adaptive(t_node **stack_a, t_node **stack_b, t_config *config);
 
 // disorder
 double	compute_disorder(t_node *stack_a);
 
 // benchmark
-void	benchmark_summary(double disorder, t_config config);
+void	benchmark_summary(double disorder, t_config *config);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   benchmark.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/30 12:14:40 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/01 14:52:21 by zscekic          ###   ########.fr       */
+/*   Updated: 2026/06/01 15:37:08 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ static void	write_disorder_percentage(double disorder)
 
 static void	write_strategy(t_config config, double disorder)
 {
-	if (ft_strcmp(config.mode, "simple"))
+	if (ft_strcmp(config.mode, "simple") == 0)
 		ft_putendl_fd("Simple / O(n^2)", 2);
-	else if (ft_strcmp(config.mode, "medium"))
+	else if (ft_strcmp(config.mode, "medium") == 0)
 		ft_putendl_fd("Medium / O(n√n)", 2);
-	else if (ft_strcmp(config.mode, "complex"))
+	else if (ft_strcmp(config.mode, "complex") == 0)
 		ft_putendl_fd("Complex / O(n log n)", 2);
-	else if (ft_strcmp(config.mode, "adaptive"))
+	else if (ft_strcmp(config.mode, "adaptive") == 0)
 	{
 		if (disorder < 0.2)
 			ft_putendl_fd("Adaptive / O(n^2)", 2);
@@ -82,16 +82,16 @@ static void	write_each_operation(t_config config)
 	ft_putnbr_fd(config.rrr_count, 2);
 }
 
-void	benchmark_summary(double disorder, t_config config)
+void	benchmark_summary(double disorder, t_config *config)
 {
 	ft_putendl_fd("---BENCHMARK SUMMARY---", 2);
 	ft_putstr_fd("disorder: ", 2);
 	write_disorder_percentage(disorder);
 	ft_putstr_fd("strategy: ", 2);
-	write_strategy(config, disorder);
+	write_strategy(*config, disorder);
 	ft_putstr_fd("total_ops: ", 2);
-	write_total_operations(config);
-	write_each_operation(config);
+	write_total_operations(*config);
+	write_each_operation(*config);
 }
 
 // #include <stdio.h>
@@ -100,5 +100,5 @@ void	benchmark_summary(double disorder, t_config config)
 // 	t_config	config;
 
 // 	config.mode = "adaptive";
-// 	benchmark_summary(0.413518, config);
+// 	benchmark_summary(0.413518, &config);
 // }

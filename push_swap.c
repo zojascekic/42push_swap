@@ -6,11 +6,12 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 12:17:41 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/06/01 13:47:46 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 15:37:55 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
@@ -29,14 +30,15 @@ int	main(int argc, char **argv)
 	}
 	stack_b = NULL;
 	if (ft_strcmp(config.mode, "simple") == 0)
-		bubble_sort(&stack_a, config);
+		bubble_sort(&stack_a, &config);
 	else if (ft_strcmp(config.mode, "medium") == 0)
-		chunk_sort(&stack_a, &stack_b, config);
+		chunk_sort(&stack_a, &stack_b, &config);
 	else if (ft_strcmp(config.mode, "complex") == 0)
-		radix_sort(&stack_a, &stack_b, config);
+		radix_sort(&stack_a, &stack_b, &config);
 	else if (ft_strcmp(config.mode, "adaptive") == 0)
-		adaptive(&stack_a, &stack_b, config);
-	// if (config.bench == 1)
-		// benchmark_summary(config);
+		adaptive(&stack_a, &stack_b, &config);
+	if (config.bench == 1)
+		benchmark_summary(compute_disorder(stack_a), &config);
+	// free_stack(&stack_a);
 	return (0);
 }

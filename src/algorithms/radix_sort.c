@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 09:54:05 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/06/01 11:27:25 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 15:33:17 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	get_max_bit_num(t_node *a)
 	return (bits);
 }
 
-void	radix_sort(t_node **a, t_node **b, t_config config)
+void	radix_sort(t_node **a, t_node **b, t_config *config)
 {
 	int	max_bits;
 	int	bit;
@@ -43,7 +43,7 @@ void	radix_sort(t_node **a, t_node **b, t_config config)
 	while (bit < max_bits)
 	{
 		i = 0;
-		while (i < config.int_num)
+		while (i < config->int_num)
 		{
 			if ((((*a)->index >> bit) & 1) == 0)
 				pb(a, b, config);
@@ -73,7 +73,7 @@ void	radix_sort(t_node **a, t_node **b, t_config config)
 // 		return (0);
 // 	}
 // 	stack_b = NULL;
-// 	radix_sort(&stack_a, &stack_b, config);
+// 	radix_sort(&stack_a, &stack_b, &config);
 // 	// int a;
 // 	// a = 21; //101010
 // 	// printf("a >> 1: %d\n", a >> 0);

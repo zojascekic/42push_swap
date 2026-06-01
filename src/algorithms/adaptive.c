@@ -6,13 +6,13 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 16:35:59 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/01 14:56:53 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 15:20:52 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	adaptive(t_node **stack_a, t_node **stack_b, t_config config)
+void	adaptive(t_node **stack_a, t_node **stack_b, t_config *config)
 {
 	double	disorder_value;
 
