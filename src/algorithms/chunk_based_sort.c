@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_based_sort.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 14:01:56 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/01 15:32:52 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/02 10:57:05 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,18 @@ void	assign_index(t_node *stack)
 
 static int	get_chunk_size(int stack_size)
 {
-	if (stack_size <= 16)
-		return (stack_size / 2);
-	if (stack_size <= 100)
-		return (23);
-	if (stack_size <= 500) //TODO delete hard code?
-		return (45);
-	else
-		return (60);
+	int	i;
+	int	sqrt_stack;
+
+	if (!stack_size)
+		return (0);
+	i = 1;
+	while ((i * i) <= stack_size)
+		i++;
+	sqrt_stack = i - 1;
+	if (sqrt_stack / 2 < 1)
+		return (1);
+	return ((stack_size / (sqrt_stack / 2)));
 }
 
 static void	scan_and_push(t_node **stack_a, t_node **stack_b, t_config *config)
@@ -84,16 +88,13 @@ static int	get_max_pos(t_node **stack_b)
 	temp = *stack_b;
 	while (temp != NULL)
 	{
-		while (temp != NULL)
+		if (temp->index > max_index)
 		{
-			if (temp->index > max_index)
-			{
-				max_index = temp->index;
-				max_pos = current_pos;
-			}
-			current_pos += 1;
-			temp = temp->next;
+			max_index = temp->index;
+			max_pos = current_pos;
 		}
+		current_pos += 1;
+		temp = temp->next;
 	}
 	return (max_pos);
 }
@@ -134,9 +135,10 @@ void	chunk_sort(t_node **stack_a, t_node **stack_b, t_config *config)
 // 	t_node	*node1;
 // 	t_node	*node2;
 // 	t_node	*node3;
-// 	t_config	config;
+// 	t_config	*config;
 
 // 	list = NULL;
+// 	config = NULL;
 // 	node1 = create_node(0);
 // 	node2 = create_node(-15);
 // 	node3 = create_node(-5);
