@@ -6,7 +6,7 @@
 /*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 16:35:59 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/02 16:10:48 by zscekic          ###   ########.fr       */
+/*   Updated: 2026/06/02 16:12:15 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	adaptive(t_node **a, t_node **b, t_config *config, double disorder)
 {
-	if (get_stack_size(a) < 6)
+	if (get_stack_size(*a) < 6)
 	{
 		sort_small(a, b, config);
 		return ;

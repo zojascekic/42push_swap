@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/01 18:45:13 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/02 16:13:10 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ void	assign_index(t_node *stack);
 void	chunk_sort(t_node **a, t_node **b, t_config *config);
 void	radix_sort(t_node **a, t_node **b, t_config *config);
 void	adaptive(t_node **a, t_node **b, t_config *config, double disorder);
+void	sort_small(t_node **stack_a, t_node **stack_b, t_config *config);
 
 // disorder
 double	compute_disorder(t_node *stack_a);

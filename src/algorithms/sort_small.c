@@ -6,7 +6,7 @@
 /*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 12:03:32 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/02 16:10:37 by zscekic          ###   ########.fr       */
+/*   Updated: 2026/06/02 16:13:03 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ static void	sort_five(t_node **stack_a, t_node **stack_b,
 	}
 }
 
-static void	sort_small(t_node **stack_a, t_node **stack_b, t_config *config)
+void	sort_small(t_node **stack_a, t_node **stack_b, t_config *config)
 {
 	int	size;
 
