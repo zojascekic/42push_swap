@@ -6,7 +6,7 @@
 /*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 12:03:32 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/02 16:13:03 by zscekic          ###   ########.fr       */
+/*   Updated: 2026/06/02 16:27:28 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ static void	sort_three(t_node **stack_a, t_config *config)
 	bot = (*stack_a)->next->next->index;
 	mid = (*stack_a)->next->index;
 	top = (*stack_a)->index;
-
 	if (top < mid && mid > bot && top < bot)
 	{
 		sa(stack_a, config);

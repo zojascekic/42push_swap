@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+         #
+#    By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/22 12:06:08 by zscekic           #+#    #+#              #
-#    Updated: 2026/06/02 10:44:49 by dvasilev         ###   ########.fr        #
+#    Updated: 2026/06/02 16:30:03 by zscekic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ OBJECTS = push_swap.o \
 		src/algorithms/adaptive.o \
 		src/algorithms/bubble_sort.o \
 		src/algorithms/chunk_based_sort.o \
-		src/algorithms/radix_sort.o
+		src/algorithms/radix_sort.o \
+		src/algorithms/sort_small.o
 		
 HEADER = push_swap.h
 CC = cc
