@@ -6,7 +6,7 @@
 /*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/30 12:14:40 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/02 11:36:17 by zscekic          ###   ########.fr       */
+/*   Updated: 2026/06/02 15:25:25 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,15 @@ static void	write_disorder_percentage(double disorder)
 	ft_putstr_fd("[bench] disorder: ", 2);
 	ft_putnbr_fd(int_part, 2);
 	ft_putchar_fd('.', 2);
-	ft_putnbr_fd(float_part, 2);
+	if (float_part == 0)
+		ft_putstr_fd("00", 2);
+	else if (float_part < 10)
+	{
+		ft_putstr_fd("0", 2);
+		ft_putnbr_fd(float_part, 2);
+	}
+	else
+		ft_putnbr_fd(float_part, 2);
 	ft_putendl_fd("%", 2);
 }
 
@@ -95,5 +103,5 @@ void	benchmark_summary(double disorder, t_config *config)
 // 	t_config	config;
 
 // 	config.strategy = "adaptive";
-// 	benchmark_summary(0.413518, &config);
+// 	benchmark_summary(0.405118, &config);
 // }
