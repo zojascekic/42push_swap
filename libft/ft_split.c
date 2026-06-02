@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_ft_split.c                                   :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 16:56:43 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/05/26 10:24:52 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/02 10:06:14 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "libft.h"
 
 static char	*copy_wrapped_substr(char *str, int start_index, int end_index)
 {
