@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 10:29:55 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/01 12:16:27 by zscekic          ###   ########.fr       */
+/*   Updated: 2026/06/02 10:55:10 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stddef.h>
+# include <stdlib.h>
 
 // Part 1 - Libc functions
 int		ft_isalpha(int c);
