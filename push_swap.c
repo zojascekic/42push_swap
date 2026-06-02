@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 12:17:41 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/06/02 11:30:00 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/02 15:58:13 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,12 @@ int	main(int argc, char **argv)
 	config = (t_config){0};
 	stack_a = get_stack(argc, argv, &config);
 	if (!stack_a)
-	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
+		return (write(2, "Error\n", 6), 1);
 	disorder = compute_disorder(stack_a);
 	if (disorder == 0.0)
 	{
+		if (config.bench == 1)
+			benchmark_summary(disorder, &config);
 		free_stack(&stack_a);
 		return (0);
 	}
