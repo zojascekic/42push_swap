@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rev_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zscekic <zscekic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 13:25:11 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/01 15:28:48 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/02 11:24:53 by zscekic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,14 @@ static void	reverse_rotate(t_node **stack)
 void	rra(t_node **stack_a, t_config *config)
 {
 	reverse_rotate(stack_a);
-	if (config->bench != 1)
-		write(1, "rra\n", 4);
+	write(1, "rra\n", 4);
 	config->rra_count += 1;
 }
 
 void	rrb(t_node **stack_b, t_config *config)
 {
 	reverse_rotate(stack_b);
-	if (config->bench != 1)
-		write(1, "rrb\n", 4);
+	write(1, "rrb\n", 4);
 	config->rrb_count += 1;
 }
 
@@ -51,8 +49,7 @@ void	rrr(t_node **stack_a, t_node **stack_b, t_config *config)
 {
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
-	if (config->bench != 1)
-		write(1, "rrr\n", 4);
+	write(1, "rrr\n", 4);
 	config->rrr_count += 1;
 }
 
