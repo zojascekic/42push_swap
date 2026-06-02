@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 12:06:12 by zscekic           #+#    #+#             */
-/*   Updated: 2026/06/01 15:31:00 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 18:45:13 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ typedef struct s_node
 typedef struct s_config
 {
 	int		bench;
-	char	*mode;
-	int		int_num;
+	char	*strategy;
+	int		size;
 	int		pa_count;
 	int		pb_count;
 	int		sa_count;
@@ -71,7 +71,7 @@ void	rrb(t_node **stack_b, t_config *config);
 void	rrr(t_node **stack_a, t_node **stack_b, t_config *config);
 
 // input - utils
-char	*get_mode(int argc, char **argv);
+char	*get_strategy(int argc, char **argv);
 int		get_bench(int argc, char **argv);
 int		get_flags_num(int argc, char **argv);
 int		count_elements_in_array(char **array);
@@ -90,9 +90,9 @@ t_node	*get_stack(int argc, char **argv, t_config *config);
 // algorithms
 void	bubble_sort(t_node **a, t_config *config);
 void	assign_index(t_node *stack);
-void	chunk_sort(t_node **stack_a, t_node **stack_b, t_config *config);
+void	chunk_sort(t_node **a, t_node **b, t_config *config);
 void	radix_sort(t_node **a, t_node **b, t_config *config);
-void	adaptive(t_node **stack_a, t_node **stack_b, t_config *config);
+void	adaptive(t_node **a, t_node **b, t_config *config, double disorder);
 
 // disorder
 double	compute_disorder(t_node *stack_a);

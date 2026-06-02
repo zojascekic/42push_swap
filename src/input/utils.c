@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 13:25:53 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/06/01 12:35:04 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 19:13:01 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ char	**split_numbers(int argc, char **argv, int flags_num)
 	while (i_arg < argc)
 	{
 		splited = ft_split(argv[i_arg++], ' ');
-		if (!splited)
-			return (free_all(res, i_res), NULL);
+		if (!splited || !splited[0])
+			return (free_all(res, i_res), free(splited), NULL);
 		i_splited = 0;
 		while (splited[i_splited])
 			res[i_res++] = splited[i_splited++];

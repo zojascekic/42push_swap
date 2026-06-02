@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 09:54:05 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/06/01 15:33:17 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/01 18:42:15 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	radix_sort(t_node **a, t_node **b, t_config *config)
 	while (bit < max_bits)
 	{
 		i = 0;
-		while (i < config->int_num)
+		while (i < config->size)
 		{
 			if ((((*a)->index >> bit) & 1) == 0)
 				pb(a, b, config);
