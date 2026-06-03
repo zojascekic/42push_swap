@@ -6,7 +6,7 @@
 /*   By: dvasilev <dvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 11:23:55 by dvasilev          #+#    #+#             */
-/*   Updated: 2026/06/01 19:11:32 by dvasilev         ###   ########.fr       */
+/*   Updated: 2026/06/03 15:36:24 by dvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	*validate_input(int argc, char **argv, t_config *config)
 	char	**numbers;
 
 	config->strategy = get_strategy(argc, argv);
-	if (!(*config->strategy))
+	if (!(config->strategy))
 		return (NULL);
 	config->bench = get_bench(argc, argv);
 	if (config->bench == -1)
